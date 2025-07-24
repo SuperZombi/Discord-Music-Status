@@ -3,5 +3,4 @@ asyncio
 pyinstaller
 requests
 infi.systray
---no-binary=:all:
 git+https://github.com/SuperZombi/Discord-RPC.git
