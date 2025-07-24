@@ -13,18 +13,16 @@ def resource_path(relative_path):
 	return os.path.join(base_path, relative_path)
 
 
-MediaInfo = Metadata()
+savedMediaInfo = Metadata()
 systemManager = WindowsMediaInfo()
 
 async def update_media_info():
-	global MediaInfo
-	localMediaInfo = await systemManager.get_media_info()
+	global savedMediaInfo
+	currentMediaInfo = await systemManager.get_media_info()
 
-	if not localMediaInfo == MediaInfo:
-		MediaInfo = localMediaInfo
-
-		if MediaInfo.status == "PLAYING":
-			answer = copy.copy(localMediaInfo)
+	if not currentMediaInfo == savedMediaInfo:
+		if currentMediaInfo.status == "PLAYING":
+			answer = copy.copy(currentMediaInfo)
 			if answer.thumbnail:
 				answer.thumbnail = await answer.thumbnail.get()
 
@@ -35,17 +33,18 @@ async def update_media_info():
 				ts_start = None
 				ts_end = None
 
-			rpc.set_activity(
+			if rpc.set_activity(
 				state=answer.artist if answer.artist else None,
 				details=answer.title,
 				act_type=2,
 				ts_start=ts_start,
 				ts_end=ts_end,
 				large_image=answer.thumbnail if answer.thumbnail else None
-			)
-			await asyncio.sleep(15)
+			):
+				savedMediaInfo = currentMediaInfo
+				await asyncio.sleep(15)
 		else:
-			rpc.set_activity(None)
+			rpc.disconnect()
 	else:
 		await asyncio.sleep(5)
 
@@ -57,7 +56,7 @@ def startBackgroundLoop():
 	asyncio.run(addEventListeners())
 
 
-rpc = discordrpc.RPC(app_id=1397914682659963050)
+rpc = discordrpc.RPC(app_id=1397914682659963050, exit_if_discord_close=False, exit_on_disconnect=False)
 Thread(target=startBackgroundLoop, daemon=True).start()
 systray = SysTrayIcon(resource_path("icon.ico"), "Discord Music Status", on_quit=lambda _: os._exit(0))
 systray.start()
