@@ -1,0 +1,6 @@
+winsdk
+asyncio
+pyinstaller
+requests
+infi.systray
+discord-rpc

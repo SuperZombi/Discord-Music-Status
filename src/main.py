@@ -1,8 +1,16 @@
+from infi.systray import SysTrayIcon
+from threading import Thread
 import discordrpc
 import time
 import asyncio
 import copy
+import os, sys
 from utils import *
+
+
+def resource_path(relative_path):
+	base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+	return os.path.join(base_path, relative_path)
 
 
 MediaInfo = Metadata()
@@ -41,7 +49,12 @@ async def addEventListeners():
 	while True:
 		await update_media_info()
 
+def startBackgroundLoop():
+	asyncio.run(addEventListeners())
+
 
 rpc = discordrpc.RPC(app_id=1397914682659963050)
-asyncio.run(addEventListeners())
+Thread(target=startBackgroundLoop, daemon=True).start()
+systray = SysTrayIcon(resource_path("icon.ico"), "Discord Music Status", on_quit=lambda _: os._exit(0))
+systray.start()
 rpc.run()
