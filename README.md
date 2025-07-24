@@ -2,3 +2,5 @@
 
 # Discord Music Status
 ### Shows what's playing as Discord status
+
+![](github/images/example.png)
