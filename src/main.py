@@ -27,12 +27,16 @@ async def update_media_info():
 			answer = copy.copy(localMediaInfo)
 			if answer.thumbnail:
 				answer.thumbnail = await answer.thumbnail.get()
-			
-			ts_start = int(time.time()) - answer.current
-			ts_end = ts_start + answer.total
+
+			if answer.current and answer.total:
+				ts_start = int(time.time()) - answer.current
+				ts_end = ts_start + answer.total
+			else:
+				ts_start = None
+				ts_end = None
 
 			rpc.set_activity(
-				state=answer.artist,
+				state=answer.artist if answer.artist else None,
 				details=answer.title,
 				act_type=2,
 				ts_start=ts_start,
