@@ -25,12 +25,12 @@ jobs:
         pip install -r ../github/requirements.txt
 
     - name: Build
-      run: pyinstaller --noconfirm --onefile --noconsole --name "Discord Music Status Windows Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." main.py
+      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Windows Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." main.py
 
     - name: Upload
       uses: xresloader/upload-to-github-release@v1
       with:
-        file: "./src/dist/Discord Music Status Windows Media.exe"
+        file: "./src/dist/DMS Windows Media.exe"
         overwrite: true
         update_latest_release: true
 
@@ -53,12 +53,12 @@ jobs:
         pip install -r ../github/requirements.txt
 
     - name: Build
-      run: pyinstaller --noconfirm --onefile --noconsole --name "Discord Music Status Browser Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "v2/main.py"
+      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Browser Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "v2/main.py"
 
     - name: Upload
       uses: xresloader/upload-to-github-release@v1
       with:
-        file: "./src/dist/Discord Music Status Browser Media.exe"
+        file: "./src/dist/DMS Browser Media.exe"
         overwrite: true
         update_latest_release: true
 

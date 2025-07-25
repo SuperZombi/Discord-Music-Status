@@ -5,8 +5,19 @@
 
 <img src="github/images/example.png" width="600px">
 
-### Usage:
-1. [Download app](https://github.com/SuperZombi/Discord-Music-Status/releases).
+# Usage:
+### Powered by Windows Media:
+1. Download [DMS Windows Media.exe](https://github.com/SuperZombi/Discord-Music-Status/releases).
 2. Launch Discord.
 3. Launch app.
 4. Play the music. (Media info is taken from Windows Media Center)
+
+### Powered by Browser Media:
+1. Download [DMS Browser Media.exe](https://github.com/SuperZombi/Discord-Music-Status/releases).
+2. Launch app.
+3. Install Extension:
+    - Chrome Store (soon)
+    - Firefox Store (soon)
+    - Manually [chrome.zip](https://github.com/SuperZombi/Discord-Music-Status/releases).
+4. Launch Discord.
+5. Play the music. (Media info is taken from your Browser Media Center)
