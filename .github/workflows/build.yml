@@ -22,7 +22,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r ../github/requirements.txt
+        pip install -r ../github/requirements_windows.txt
 
     - name: Build
       run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Windows Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "windows/main.py"
@@ -50,7 +50,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r ../github/requirements.txt
+        pip install -r ../github/requirements_browser.txt
 
     - name: Build
       run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Browser Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "browser/main.py"
