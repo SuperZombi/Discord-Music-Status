@@ -2,5 +2,6 @@ winsdk
 asyncio
 pyinstaller
 requests
+flask
 infi.systray
 git+https://github.com/SuperZombi/Discord-RPC.git
