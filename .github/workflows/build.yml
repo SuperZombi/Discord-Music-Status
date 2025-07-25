@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-windows:
     runs-on: windows-latest
     defaults:
       run:
@@ -25,7 +25,7 @@ jobs:
         pip install -r ../github/requirements.txt
 
     - name: Build
-      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Windows Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." main.py
+      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Windows Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "windows/main.py"
 
     - name: Upload
       uses: xresloader/upload-to-github-release@v1
@@ -34,7 +34,7 @@ jobs:
         overwrite: true
         update_latest_release: true
 
-  build-v2:
+  build-browser:
     runs-on: windows-latest
     defaults:
       run:
@@ -53,7 +53,7 @@ jobs:
         pip install -r ../github/requirements.txt
 
     - name: Build
-      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Browser Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "v2/main.py"
+      run: pyinstaller --noconfirm --onefile --noconsole --name "DMS Browser Media" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "browser/main.py"
 
     - name: Upload
       uses: xresloader/upload-to-github-release@v1
@@ -62,7 +62,7 @@ jobs:
         overwrite: true
         update_latest_release: true
 
-  build-v2-extension:
+  build-extension:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -71,8 +71,8 @@ jobs:
       - name: Create chrome
         run: |
           mkdir chrome_build
-          cp -r src/v2/extension/* chrome_build/
-          cp src/v2/chrome/manifest.json chrome_build/
+          cp -r src/extension/main/* chrome_build/
+          cp src/extension/chrome/manifest.json chrome_build/
           cd chrome_build
           zip -r ../chrome.zip .
 
@@ -86,8 +86,8 @@ jobs:
       - name: Create firefox
         run: |
           mkdir firefox_build
-          cp -r src/v2/extension/* firefox_build/
-          cp src/v2/firefox/manifest.json firefox_build/
+          cp -r src/extension/main/* firefox_build/
+          cp src/extension/firefox/manifest.json firefox_build/
           cd firefox_build
           zip -r ../firefox.zip .
 
