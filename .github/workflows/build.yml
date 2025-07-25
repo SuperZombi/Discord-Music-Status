@@ -62,22 +62,38 @@ jobs:
         overwrite: true
         update_latest_release: true
 
-  build-v2-chrome:
+  build-v2-extension:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create archive
+      - name: Create chrome
         run: |
           mkdir chrome_build
-          cp -r src/v2/chrome/* chrome_build/
+          cp -r src/v2/extension/* chrome_build/
+          cp src/v2/chrome/manifest.json chrome_build/
           cd chrome_build
           zip -r ../chrome.zip .
 
-      - name: Upload to Release
+      - name: Upload chrome
         uses: xresloader/upload-to-github-release@v1
         with:
           file: chrome.zip
+          overwrite: true
+          update_latest_release: true
+        
+      - name: Create firefox
+        run: |
+          mkdir firefox_build
+          cp -r src/v2/extension/* firefox_build/
+          cp src/v2/firefox/manifest.json firefox_build/
+          cd firefox_build
+          zip -r ../firefox.zip .
+
+      - name: Upload firefox
+        uses: xresloader/upload-to-github-release@v1
+        with:
+          file: firefox.zip
           overwrite: true
           update_latest_release: true
