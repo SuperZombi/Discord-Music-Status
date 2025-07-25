@@ -14,6 +14,7 @@ def resource_path(relative_path):
 app = Flask(__name__)
 
 last_update_time = 0
+last_data = {}
 
 @app.after_request
 def add_cors_headers(response):
@@ -24,33 +25,39 @@ def add_cors_headers(response):
 
 @app.route('/update', methods=['POST', 'OPTIONS'])
 def update_presence():
-	global last_update_time
+	global last_update_time, last_data
 	if request.method == 'OPTIONS':
 		return make_response('', 204)
 
 	data = request.json
-	last_update_time = time.time()
+	if last_data == data: return 'OK'
 
 	if data.get('status') == "PLAYING":
-		if data.get('current') and data.get('total'):
-			ts_start = int(time.time()) - int(data.get('current'))
-			ts_end = ts_start + int(data.get('total'))
-		else:
-			ts_start = None
-			ts_end = None
+		if time.time() - last_update_time > 15:
+			if data.get('current') and data.get('total'):
+				ts_start = int(time.time()) - int(data.get('current'))
+				ts_end = ts_start + int(data.get('total'))
+			else:
+				ts_start = None
+				ts_end = None
 
-		rpc.set_activity(
-			state=data.get('artist'),
-			details=data.get('title'),
-			act_type=Activity.Listening,
-			ts_start=ts_start,
-			ts_end=ts_end,
-			large_image=data.get('thumbnail'),
-			small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
-			buttons=[ Button("Open", data.get('url') ) ]
-		)
+			rpc.set_activity(
+				state=data.get('artist'),
+				details=data.get('title'),
+				act_type=Activity.Listening,
+				ts_start=ts_start,
+				ts_end=ts_end,
+				large_image=data.get('thumbnail'),
+				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
+				buttons=[ Button("Open", data.get('url') ) ]
+			)
+			last_update_time = time.time()
+			last_data = data
 	else:
 		rpc.disconnect()
+		last_update_time = time.time()
+		last_data = data
+
 	return 'OK'
 
 def monitor_timeout():

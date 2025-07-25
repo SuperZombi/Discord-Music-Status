@@ -28,7 +28,7 @@ setInterval(() => {
 	}
 
 	sendMetadata(answer);
-}, 15000);
+}, 5000);
 
 function isYoutubeUrl(url) {
 	try {
