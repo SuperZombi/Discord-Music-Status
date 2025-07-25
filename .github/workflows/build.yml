@@ -28,7 +28,7 @@ jobs:
       run: pyinstaller --noconfirm --onefile --noconsole --name "Discord Music Status" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." main.py
 
     - name: Upload
-      uses: xresloader/upload-to-github-release@v1
+      uses: svenstaro/upload-release-action@2.11.2
       with:
         file: "./src/dist/Discord Music Status.exe"
         asset_name: "Discord Music Status (Windows Media)"
@@ -57,7 +57,7 @@ jobs:
       run: pyinstaller --noconfirm --onefile --noconsole --name "Discord Music Status v2" --icon="icon.ico" --version-file="../github/ver.txt" --add-data "icon.ico;." "v2/main.py"
 
     - name: Upload
-      uses: xresloader/upload-to-github-release@v1
+      uses: svenstaro/upload-release-action@2.11.2
       with:
         file: "./src/dist/Discord Music Status v2.exe"
         asset_name: "Discord Music Status (Browser Media)"
