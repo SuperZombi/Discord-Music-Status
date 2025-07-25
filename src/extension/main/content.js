@@ -20,6 +20,7 @@ setInterval(() => {
 		answer.total = parseInt(media.duration)
 		answer.status = media.paused ? "PAUSED" : "PLAYING"
 	}
+
 	if (isYoutubeUrl(window.location.href)){
 		answer.url = buildYoutubeUrl(window.location.href, answer.current)
 	} else {
@@ -33,7 +34,8 @@ function isYoutubeUrl(url) {
 	try {
 		const parsed = new URL(url);
 		return (
-			(parsed.hostname === "www.youtube.com" || parsed.hostname === "music.youtube.com")
+			(parsed.hostname === "www.youtube.com" || parsed.hostname === "music.youtube.com") &&
+			parsed.pathname === "/watch"
 		)
 	} catch {
 		return false;
