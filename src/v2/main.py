@@ -2,6 +2,7 @@ from flask import Flask, request, make_response
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
+from discordrpc import Button
 import time
 import os, sys
 
@@ -45,9 +46,7 @@ def update_presence():
 			ts_end=ts_end,
 			large_image=data.get('thumbnail'),
 			small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
-			buttons=[
-				{ "label": "Open", "url": data.get('url') }
-			]
+			buttons=[ Button("Open", data.get('url') ) ]
 		)
 	else:
 		rpc.disconnect()
