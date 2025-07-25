@@ -2,6 +2,7 @@ from flask import Flask, request, make_response
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
+from discordrpc import Activity
 from discordrpc import Button
 import time
 import os, sys
@@ -41,7 +42,7 @@ def update_presence():
 		rpc.set_activity(
 			state=data.get('artist'),
 			details=data.get('title'),
-			act_type=2,
+			act_type=Activity.Listening,
 			ts_start=ts_start,
 			ts_end=ts_end,
 			large_image=data.get('thumbnail'),
