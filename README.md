@@ -19,5 +19,6 @@
     - Chrome Store (soon)
     - Firefox Store (soon)
     - Manually [chrome.zip](https://github.com/SuperZombi/Discord-Music-Status/releases).
-4. Launch Discord.
-5. Play the music. (Media info is taken from your Browser Media Center)
+4. Restart Browser (if it was running).
+5. Launch Discord.
+6. Play the music. (Media info is taken from your Browser Media Center)
