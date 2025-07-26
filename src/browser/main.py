@@ -48,6 +48,7 @@ def update_presence():
 				ts_start=ts_start,
 				ts_end=ts_end,
 				large_image=data.get('thumbnail'),
+				details_url=data.get('url'),
 				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
 				buttons=[ Button("Open", data.get('url') ) ]
 			)
