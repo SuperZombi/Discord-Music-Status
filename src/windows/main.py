@@ -46,7 +46,7 @@ async def update_media_info():
 				savedMediaInfo = currentMediaInfo
 				await asyncio.sleep(15)
 		else:
-			rpc.disconnect()
+			rpc.clear()
 	else:
 		await asyncio.sleep(5)
 

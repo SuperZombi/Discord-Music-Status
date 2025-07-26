@@ -55,7 +55,7 @@ def update_presence():
 			last_update_time = time.time()
 			last_data = data
 	else:
-		rpc.disconnect()
+		rpc.clear()
 		last_update_time = time.time()
 		last_data = data
 
@@ -68,7 +68,7 @@ def monitor_timeout():
 		TIMEOUT = 30
 		if time.time() - last_update_time > TIMEOUT and last_update_time != 0:
 			try:
-				rpc.disconnect()
+				rpc.clear()
 			except:
 				None
 			last_update_time = 0
