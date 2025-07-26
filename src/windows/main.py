@@ -47,6 +47,8 @@ async def update_media_info():
 				await asyncio.sleep(15)
 		else:
 			rpc.clear()
+			savedMediaInfo = currentMediaInfo
+			await asyncio.sleep(5)
 	else:
 		await asyncio.sleep(5)
 
