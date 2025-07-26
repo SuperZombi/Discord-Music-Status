@@ -1,6 +1,7 @@
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
+from discordrpc import Activity
 import time
 import asyncio
 import copy
@@ -36,7 +37,7 @@ async def update_media_info():
 			if rpc.set_activity(
 				state=answer.artist if answer.artist else None,
 				details=answer.title,
-				act_type=2,
+				act_type=Activity.Listening,
 				ts_start=ts_start,
 				ts_end=ts_end,
 				large_image=answer.thumbnail if answer.thumbnail else None,
