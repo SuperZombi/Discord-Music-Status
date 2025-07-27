@@ -16,7 +16,7 @@
 1. Download [DMS Browser Media.exe](https://github.com/SuperZombi/Discord-Music-Status/releases).
 2. Launch app.
 3. Install Extension:
-    - Chrome Store (soon)
+    - [Chrome Store](https://chrome.google.com/webstore/detail/ebelhijmeagkemnleamodjoknjjhfkja)
     - Firefox Store (soon)
     - Manually [chrome.zip](https://github.com/SuperZombi/Discord-Music-Status/releases).
 4. Restart Browser (if it was running).
