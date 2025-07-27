@@ -16,9 +16,8 @@
 1. Download [DMS Browser Media.exe](https://github.com/SuperZombi/Discord-Music-Status/releases).
 2. Launch app.
 3. Install Extension:
-    - [Chrome Store](https://chrome.google.com/webstore/detail/ebelhijmeagkemnleamodjoknjjhfkja)
-    - Firefox Store (soon)
-    - Manually [chrome.zip](https://github.com/SuperZombi/Discord-Music-Status/releases).
+    - <img width="20px" src="https://www.svgrepo.com/show/452180/chrome.svg" align="center"> [Chrome Store](https://chrome.google.com/webstore/detail/ebelhijmeagkemnleamodjoknjjhfkja)
+    - <img width="20px" src="https://www.svgrepo.com/show/452204/firefox.svg" align="center"> Firefox Store (soon)
 4. Restart Browser (if it was running).
 5. Launch Discord.
 6. Play the music. (Media info is taken from your Browser Media Center)
