@@ -12,7 +12,7 @@
 3. Launch app.
 4. Install Extension:
     - <img width="20px" src="https://www.svgrepo.com/show/452180/chrome.svg" align="center"> [Chrome Store](https://chrome.google.com/webstore/detail/ebelhijmeagkemnleamodjoknjjhfkja)
-    - <img width="20px" src="https://www.svgrepo.com/show/452204/firefox.svg" align="center"> Firefox Store (soon)
+    - <img width="20px" src="https://www.svgrepo.com/show/452204/firefox.svg" align="center"> [Firefox Store](https://addons.mozilla.org/firefox/addon/discord-music-status/)
 5. Restart Browser (if it was running).
 6. Play the music. (Media info is taken from your Browser Media Center)
 
