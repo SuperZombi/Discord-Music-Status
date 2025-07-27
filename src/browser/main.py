@@ -2,8 +2,7 @@ from flask import Flask, request, make_response
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
-from discordrpc import Activity
-from discordrpc import Button
+from discordrpc import Activity, Button, Progressbar
 import time
 import os, sys
 
@@ -35,18 +34,18 @@ def update_presence():
 	if data.get('status') == "PLAYING":
 		if time.time() - last_update_time > 15:
 			if data.get('current') and data.get('total'):
-				ts_start = int(time.time()) - int(data.get('current'))
-				ts_end = ts_start + int(data.get('total'))
+				progress = Progressbar(
+					int(data.get('current')),
+					int(data.get('total'))
+				)
 			else:
-				ts_start = None
-				ts_end = None
+				progress = None
 
 			rpc.set_activity(
 				state=data.get('artist'),
 				details=data.get('title'),
 				act_type=Activity.Listening,
-				ts_start=ts_start,
-				ts_end=ts_end,
+				progressbar=progress,
 				large_image=data.get('thumbnail'),
 				details_url=data.get('url'),
 				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
