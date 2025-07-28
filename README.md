@@ -16,6 +16,10 @@
 5. Restart Browser (if it was running).
 6. Play the music. (Media info is taken from your Browser Media Center)
 
+<details>
+<summary>You can select specific sites to track music playback, or select all sites (may impact performance)</summary>
+<img width="700" src="github/images/settings.png"/>
+</details>
 <hr>
 
 ### Powered by Windows Media:
