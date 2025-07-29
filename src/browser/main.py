@@ -39,17 +39,17 @@ def update_presence():
 					int(data.get('total'))
 				)
 			else:
-				progress = None
+				progress = {}
 
 			rpc.set_activity(
 				state=data.get('artist'),
 				details=data.get('title'),
 				act_type=Activity.Listening,
-				progressbar=progress,
 				large_image=data.get('thumbnail'),
 				details_url=data.get('url'),
 				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
-				buttons=[ Button("Open", data.get('url') ) ]
+				buttons=[ Button("Open", data.get('url') ) ],
+				**progress
 			)
 			last_update_time = time.time()
 			last_data = data
