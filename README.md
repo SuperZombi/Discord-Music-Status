@@ -30,6 +30,9 @@
 
 <hr>
 
+### See also:
+- [Discord Presence](https://github.com/SuperZombi/Discord-Presence)
+
 ## 💲Donate
 <table>
   <tr>
