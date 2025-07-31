@@ -22,7 +22,7 @@
 </details>
 <hr>
 
-### Powered by Windows Media:
+### Powered by Windows Media (Old):
 1. Download [DMS Windows Media.exe](https://github.com/SuperZombi/Discord-Music-Status/releases).
 2. Launch Discord.
 3. Launch app.
