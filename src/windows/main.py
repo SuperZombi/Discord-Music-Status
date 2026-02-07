@@ -41,7 +41,7 @@ async def update_media_info():
 				ts_start=ts_start,
 				ts_end=ts_end,
 				large_image=answer.thumbnail if answer.thumbnail else None,
-				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif"
+				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave-v2.gif"
 			):
 				savedMediaInfo = currentMediaInfo
 				await asyncio.sleep(15)

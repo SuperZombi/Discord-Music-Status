@@ -47,7 +47,7 @@ def update_presence():
 				act_type=Activity.Listening,
 				large_image=data.get('thumbnail'),
 				details_url=data.get('url'),
-				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave.gif",
+				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave-v2.gif",
 				buttons=[ Button("Open", data.get('url') ) ],
 				**progress
 			)
