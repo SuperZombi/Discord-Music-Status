@@ -1,4 +1,4 @@
 pyinstaller
 infi.systray
 flask
-git+https://github.com/SuperZombi/Discord-RPC.git
+discord-rpc

@@ -3,4 +3,4 @@ infi.systray
 winsdk
 asyncio
 requests
-git+https://github.com/SuperZombi/Discord-RPC.git
+discord-rpc

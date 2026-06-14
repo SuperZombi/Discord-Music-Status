@@ -2,7 +2,7 @@ from flask import Flask, request, make_response
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
-from discordrpc import Activity, Button, Progressbar
+from discordrpc import Activity, Button, progress_bar
 import time
 import os, sys
 
@@ -34,7 +34,7 @@ def update_presence():
 	if data.get('status') == "PLAYING":
 		if time.time() - last_update_time > 15:
 			if data.get('current') and data.get('total'):
-				progress = Progressbar(
+				progress = progress_bar(
 					int(data.get('current')),
 					int(data.get('total'))
 				)
