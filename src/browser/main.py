@@ -2,7 +2,7 @@ from flask import Flask, request, make_response
 from infi.systray import SysTrayIcon
 from threading import Thread
 import discordrpc
-from discordrpc import Activity, Button, progress_bar
+from discordrpc import Activity, button, progress_bar
 import time
 import os, sys
 
@@ -42,13 +42,14 @@ def update_presence():
 				progress = {}
 
 			rpc.set_activity(
+				name="YouTube Music",
 				state=data.get('artist'),
 				details=data.get('title'),
 				act_type=Activity.Listening,
 				large_image=data.get('thumbnail'),
 				details_url=data.get('url'),
 				small_image="https://raw.githubusercontent.com/SuperZombi/Discord-Music-Status/refs/heads/main/github/images/audio-wave-v2.gif",
-				buttons=[ Button("Open", data.get('url') ) ],
+				buttons=[ button("Open", data.get('url') ) ],
 				**progress
 			)
 			last_update_time = time.time()
